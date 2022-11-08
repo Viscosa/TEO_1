@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float sizeGrow;
     private bool isCharging;
     public float scaleChange = 0.01f;
+    public float waitFor;
     [SerializeField] private GameObject growth;
 
     bool cooldown = true;
@@ -24,7 +25,7 @@ public class Gun : MonoBehaviour
         if (Input.GetKey(KeyCode.J) && chargeTime < 2 && cooldown) 
         {
             isCharging = true;
-            if(isCharging == true)
+            if(isCharging == true) //bomba gde
             {
                 chargeTime += Time.deltaTime * chargeSpeed;
                 GameObject newgrowth = Instantiate(growth, firepoint.position, firepoint.rotation);
@@ -35,12 +36,12 @@ public class Gun : MonoBehaviour
             //cooldown = false;
             //StartCoroutine(TimeOut());
         }
-        if (Input.GetKeyDown(KeyCode.J) && cooldown)
+        if (Input.GetKeyDown(KeyCode.J) && cooldown)//bomba ch
         {
             Instantiate(projectile, firepoint.position, firepoint.rotation);
             chargeTime = 0;
             cooldown = false;
-            StartCoroutine(TimeOut());
+            StartCoroutine(TimeOut(waitFor));
         } else if(Input.GetKeyUp(KeyCode.J) && chargeTime >= 2 )
         {
             ReleaseCharge();
@@ -55,12 +56,12 @@ public class Gun : MonoBehaviour
         isCharging = false;
         chargeTime = 0;
         cooldown = false;
-        StartCoroutine(TimeOut());
+        StartCoroutine(TimeOut(waitFor));
     }
 
-    IEnumerator TimeOut()
+    IEnumerator TimeOut(float waitFor)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(waitFor);
         cooldown = true;
     }
 }

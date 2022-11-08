@@ -5,173 +5,42 @@ using UnityEngine;
 public class PController : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 5f;
-    public float jumpForce = 8f;
-    public float gravity = -16f;
+    public float speed = 8f;
+    public float jumpForce = 10f;
+    public float gravity = -20f;
     public float NT = 0f;
     public float resta = 1;
     public bool moving;
+    //public float waterGravity;
     public bool hability;
     public bool isGrounded;
+    public bool isSwiming;
     public bool ableToMakeDoubleJump;
     public Transform model;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    
+    public LayerMask waterMask;
 
     private Vector3 direction;
-    Animator animator;
-    private bool moveDetected;
-    private Gun waterBomb;
-
-    enum TeoStates
-    {
-        Idle,
-        Walk,
-        Jump,
-        DoubleJump,
-        Caida,
-        Landing,
-        WaterStreamIn,
-        WaterStreamLoop,
-        WaterStreamOut
-    };
-    TeoStates state;
-
 
     // Start is called before the first frame update
     void Start()
     {
         moving = true;
-        animator = GetComponent<Animator>();
-        ChangeState(TeoStates.Idle);
-        waterBomb = FindObjectOfType<Gun>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Walk();
-        Jump();
-
-        //Prueba
-        if (TeoState.vidas <= 0 || TeoState.resp == 1)
-        {
-            StartCoroutine(PausaRes());
-        }
-
-        switch(state)
-        {
-            case TeoStates.Idle:
-                Idle();
-                break;
-            case TeoStates.Walk:
-                Walk();
-                break;
-            case TeoStates.Jump:
-                Jump();
-                break;
-            case TeoStates.DoubleJump:
-                DoubleJump();
-                break;
-            case TeoStates.WaterStreamIn:
-                WaterStreamIn();
-                break;
-            case TeoStates.WaterStreamOut:
-                WaterStreamOut();
-                break;
-        }
-        //if (waterBomb.enabled == true)
-        //{
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                ChangeState(TeoStates.WaterStreamIn);
-            }
-            if (Input.GetKeyUp(KeyCode.J))
-            {
-                ChangeState(TeoStates.WaterStreamOut);
-            }
-        //}
-
-    }
-    private void CheckRoof()
-    {
-        RaycastHit hitInfo = new RaycastHit();
-        Debug.DrawRay(transform.position, Vector3.up * 1.1f, Color.red);
-        if (Physics.Raycast(transform.position, Vector3.up, out hitInfo, 1.1f, groundLayer))
-        {
-            gravity = -350f;
-        }
-    }
-
-    IEnumerator PausaRes()
-    {
-        moving = false;
-        yield return new WaitForSeconds(1);
-        NT = 0;
-        moving = true;
-    }
-    
-    void ChangeState(TeoStates newState)
-    {
-        switch (newState)
-        {
-            case TeoStates.Idle:
-                animator.SetBool("isGrounded", true);
-                animator.SetBool("isMoving", false);
-                break;
-            case TeoStates.Walk:
-                animator.SetBool("isGrounded", true);
-                animator.SetBool("isMoving", true);
-                break;
-            case TeoStates.Jump:
-                animator.SetBool("isGrounded", false);
-                break;
-            case TeoStates.DoubleJump:
-                animator.SetBool("isGrounded", false);
-                //animator.SetBool("doubleJump", false);
-                break;
-            case TeoStates.Caida:
-                if(isGrounded)
-                {
-                    animator.SetBool("isGrounded", true);
-                    animator.SetBool("doubleJump", true);
-                }
-                break;
-            case TeoStates.Landing:
-                animator.SetBool("isGrounded", true);
-                break;
-            case TeoStates.WaterStreamIn:
-                animator.SetBool("waterBomb",true);
-                break;
-            case TeoStates.WaterStreamOut:
-                animator.SetBool("waterBomb", false);
-                break;
-        }
-        state = newState;
-    }
-
-
-    void Idle()
-    {
-        ChangeState(TeoStates.Idle);
-        if(isGrounded==false)
-        {
-            ChangeState(TeoStates.Jump);
-        }
-    }
-
-    void Walk()
-    {
         //Slow
         if (NT > 0)
         {
-            speed = 3;
+            speed = 5;
             NT -= resta * Time.deltaTime;
         }
         else
         {
-            speed = 5;
+            speed = 10;
         }
         if (TeoState.nslow == 1)
         {
@@ -179,45 +48,22 @@ public class PController : MonoBehaviour
             TeoState.nslow = 0;
             TeoState.SavePrefs();
         }
-       
+
         //Move
         if (moving == true)
         {
             float hInput = Input.GetAxis("Horizontal");
             direction.x = hInput * speed;
-            moveDetected = false;
-            if (moveDetected== false)
-            {
-                ChangeState(TeoStates.Idle);
-            }
 
             //Flip
             if (hInput != 0)
             {
-                Quaternion newRotation = Quaternion.LookRotation(new Vector3(hInput, 0, 0));
+                Quaternion newRotation = Quaternion.LookRotation(new Vector3(0, 0, hInput));
                 model.rotation = newRotation;
-                moveDetected = true;
-                if(moveDetected==true)
-                {
-                    ChangeState(TeoStates.Walk);
-                    if (isGrounded == false)
-                    {
-                        ChangeState(TeoStates.Jump);
-                       /* if (ableToMakeDoubleJump == false)
-                        {
-                            ChangeState(TeoStates.DoubleJump);
-                        }*/
-                    }
-                }
             }
 
             controller.Move(direction * Time.deltaTime);
-            
         }
-    }
-
-    void Jump()
-    {
         //Jump
         if (hability == false)
         {
@@ -233,20 +79,9 @@ public class PController : MonoBehaviour
             }
         }
 
-        if(hability==true)
-        {
-            //DoubleJump();
-            ChangeState(TeoStates.DoubleJump);
-        }
-        else
-        {
-            ChangeState(TeoStates.Caida);
-        }
-    }
-
-    void DoubleJump()
-    {
         //DoubleJump
+        if (hability == true)
+        {
             CheckRoof();
             isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
             direction.y += gravity * Time.deltaTime;
@@ -260,23 +95,58 @@ public class PController : MonoBehaviour
             }
             else
             {
-                if (ableToMakeDoubleJump && Input.GetButtonDown("Jump"))
+                if (ableToMakeDoubleJump & Input.GetButtonDown("Jump"))
                 {
-                    animator.SetBool("doubleJump", false);
                     direction.y = jumpForce;
                     ableToMakeDoubleJump = false;
                 }
             }
-        ChangeState(TeoStates.Caida);
+        }
+
+        //Swiming
+
+        isSwiming = Physics.CheckSphere(groundCheck.position, 0.2f, waterMask);
+
+        if (isSwiming)
+        {
+            gravity = -4f;
+            speed = 8f;
+            jumpForce = 6f;
+            if (Input.GetButtonUp("Jump"))
+            {
+                direction.y = jumpForce;
+                // controller.Move(Vector3.right);
+            }
+
+        }
+        else
+        {
+            speed = 8f;
+            gravity = -20f;
+            jumpForce = 10f;
+        }
+
+        //Prueba
+        if (TeoState.vidas <= 0 || TeoState.resp == 1)
+        {
+            StartCoroutine(PausaRes());
+        }
+    }
+    private void CheckRoof()
+    {
+        RaycastHit hitInfo = new RaycastHit();
+        Debug.DrawRay(transform.position, Vector3.up * 0.8f, Color.red);
+        if (Physics.Raycast(transform.position, Vector3.up, out hitInfo, 0.8f, groundLayer))
+        {
+            gravity = -350f;
+        }
     }
 
-    void WaterStreamIn()
+    IEnumerator PausaRes()
     {
-
-    }
-
-    void WaterStreamOut()
-    {
-
+        moving = false;
+        yield return new WaitForSeconds(1);
+        NT = 0;
+        moving = true;
     }
 }
