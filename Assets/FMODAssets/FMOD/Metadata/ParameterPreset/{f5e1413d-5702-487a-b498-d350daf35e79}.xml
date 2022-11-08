@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{f5e1413d-5702-487a-b498-d350daf35e79}">
+		<property name="name">
+			<value>Volumen Ambiental</value>
+		</property>
+		<relationship name="folder">
+			<destination>{520d93e4-45e7-45a7-aac3-40f95c64d54c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{2de276f3-8470-44bf-b718-6e0a7eec45c4}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{2de276f3-8470-44bf-b718-6e0a7eec45c4}">
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

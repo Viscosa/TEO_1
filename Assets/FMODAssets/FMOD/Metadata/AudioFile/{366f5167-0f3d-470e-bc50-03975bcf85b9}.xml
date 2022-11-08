@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{366f5167-0f3d-470e-bc50-03975bcf85b9}">
+		<property name="assetPath">
+			<value>Teo/Acciones/Jump/Teo_Village_jump_04.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.64958333333333329</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22f7b05a-8a07-43a5-a9c6-ead04422ddb5}</destination>
+		</relationship>
+	</object>
+</objects>

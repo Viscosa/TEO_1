@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{42b812b2-79c4-46f7-88fa-66de1d7c5fb1}">
+		<property name="assetPath">
+			<value>Medusa_Grotto_attack_02.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.984</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22f7b05a-8a07-43a5-a9c6-ead04422ddb5}</destination>
+		</relationship>
+	</object>
+</objects>
