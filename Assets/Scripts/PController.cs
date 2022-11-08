@@ -5,9 +5,9 @@ using UnityEngine;
 public class PController : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 5f;
-    public float jumpForce = 8f;
-    public float gravity = -16f;
+    public float speed = 8f;
+    public float jumpForce = 10f;
+    public float gravity = -20f;
     public float NT = 0f;
     public float resta = 1;
     public bool moving;
@@ -81,8 +81,9 @@ public class PController : MonoBehaviour
                 WaterStreamOut();
                 break;
         }
-        //if (waterBomb.enabled == true)
-        //{
+
+        if (waterBomb.enabled == true)
+        {
             if (Input.GetKeyDown(KeyCode.J))
             {
                 ChangeState(TeoStates.WaterStreamIn);
@@ -91,7 +92,7 @@ public class PController : MonoBehaviour
             {
                 ChangeState(TeoStates.WaterStreamOut);
             }
-        //}
+        }
 
     }
     private void CheckRoof()
@@ -166,12 +167,12 @@ public class PController : MonoBehaviour
         //Slow
         if (NT > 0)
         {
-            speed = 3;
+            speed = 5;
             NT -= resta * Time.deltaTime;
         }
         else
         {
-            speed = 5;
+            speed = 8;
         }
         if (TeoState.nslow == 1)
         {
