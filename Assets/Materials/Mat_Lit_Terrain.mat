@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Lit_Rock
+  m_Name: Mat_Lit_Terrain
   m_Shader: {fileID: -6465566751694194690, guid: 9e7ebe2dc83276d46902a806793cc20b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -63,28 +63,28 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AO_Contrast: 1
-    - _Emissive_Intensity: 15
+    - _AO_Contrast: 1.67
+    - _Emissive_Intensity: 0.1
     - _Has_AO: 1
     - _Has_Color_Texture: 1
-    - _Has_Emissive: 1
+    - _Has_Emissive: 0
     - _Has_Metallic: 0
     - _Has_Normal: 1
     - _Has_Roughness: 1
     - _Metallic_Contrast: 1
     - _Normal_DX: 0
-    - _Normal_Intensity: 1
-    - _Offset_X: 0.02
-    - _Offset_Y: -2.03
+    - _Normal_Intensity: 2.5
+    - _Offset_X: 0
+    - _Offset_Y: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Roughness_black: 0
+    - _Roughness_black: 0.01
     - _Roughness_max_value: 1
-    - _Roughness_min_value: 0
+    - _Roughness_min_value: 0.11
     - _Roughness_white: 1
-    - _Texture_Color_Contrast: 1
+    - _Texture_Color_Contrast: 0
     m_Colors:
-    - _Color_Or_Tint: {r: 1, g: 1, b: 1, a: 1}
-    - _Emissive_Color: {r: 0.14509803, g: 0.47617897, b: 0.5647059, a: 1}
-    - _Tilling: {r: 1, g: 1, b: 0, a: 0}
+    - _Color_Or_Tint: {r: 0.37459952, g: 0.41082543, b: 0.4339623, a: 1}
+    - _Emissive_Color: {r: 1, g: 1, b: 1, a: 0.6313726}
+    - _Tilling: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
