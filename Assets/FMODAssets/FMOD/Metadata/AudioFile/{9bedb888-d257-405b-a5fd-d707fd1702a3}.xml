@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9bedb888-d257-405b-a5fd-d707fd1702a3}">
+		<property name="assetPath">
+			<value>Teo/Acciones/Pasos/Teo_Village_step_04.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.47620833333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22f7b05a-8a07-43a5-a9c6-ead04422ddb5}</destination>
+		</relationship>
+	</object>
+</objects>
