@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{632418f3-23f0-4c45-bef4-64d699b9326a}">
+		<property name="assetPath">
+			<value>Alba/Actions/Alba_Village_cry_05.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22f7b05a-8a07-43a5-a9c6-ead04422ddb5}</destination>
+		</relationship>
+	</object>
+</objects>

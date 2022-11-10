@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{aef2372e-3421-4736-8cc7-aaaf8b5c1c14}">
+		<property name="assetPath">
+			<value>Ambientales/Grutas/Grutas_Cascada_Ecualizado.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22f7b05a-8a07-43a5-a9c6-ead04422ddb5}</destination>
+		</relationship>
+	</object>
+</objects>

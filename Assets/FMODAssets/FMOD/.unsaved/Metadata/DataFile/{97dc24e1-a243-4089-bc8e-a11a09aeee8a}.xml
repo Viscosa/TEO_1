@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{97dc24e1-a243-4089-bc8e-a11a09aeee8a}">
+		<property name="assetPath">
+			<value>Ambientales/Grutas/Grutas_lago_Ecualizado.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22f7b05a-8a07-43a5-a9c6-ead04422ddb5}</destination>
+		</relationship>
+	</object>
+</objects>

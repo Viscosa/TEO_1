@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{dfda3fab-98ee-4ad9-8c1c-3b1530b735e9}">
+		<property name="assetPath">
+			<value>Alba/Dialogues/Alba_Village_Dialogue_02.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22f7b05a-8a07-43a5-a9c6-ead04422ddb5}</destination>
+		</relationship>
+	</object>
+</objects>

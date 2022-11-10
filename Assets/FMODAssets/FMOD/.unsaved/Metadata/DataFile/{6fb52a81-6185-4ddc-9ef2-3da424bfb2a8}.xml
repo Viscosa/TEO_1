@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{6fb52a81-6185-4ddc-9ef2-3da424bfb2a8}">
+		<property name="assetPath">
+			<value>Kehlos/Dialogues/Keh_los_ToadKingdom_Dialogue_04_Versión02.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22f7b05a-8a07-43a5-a9c6-ead04422ddb5}</destination>
+		</relationship>
+	</object>
+</objects>
