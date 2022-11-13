@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{e4716240-3a48-4f2f-ba21-ead61bde7e3b}">
 		<property name="assetPath">
-			<value>Teo/Teo_Grotto_strenght_ecualizado.wav</value>
+			<value>Teo/Habilidades/Teo_Grotto_strenght_ecualizado.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>24</value>

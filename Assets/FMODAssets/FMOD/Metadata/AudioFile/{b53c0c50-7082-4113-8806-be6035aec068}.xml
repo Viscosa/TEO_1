@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{b53c0c50-7082-4113-8806-be6035aec068}">
 		<property name="assetPath">
-			<value>Teo/Teo_Grotto_doubleJump.wav</value>
+			<value>Teo/Habilidades/Teo_Grotto_doubleJump.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

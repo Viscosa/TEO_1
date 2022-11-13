@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{6560563b-7d9f-4f7d-a8c2-190af5667701}">
 		<property name="assetPath">
-			<value>Teo/Teo_Grotto_waterjet.wav</value>
+			<value>Teo/Habilidades/Teo_Grotto_waterjet.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
